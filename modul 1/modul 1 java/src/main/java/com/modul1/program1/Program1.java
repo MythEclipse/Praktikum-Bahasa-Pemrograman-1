@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.mavenproject2;
+package com.modul1.program1;
 
 /**
  *
@@ -11,11 +11,11 @@ package com.mycompany.mavenproject2;
 
 import java.awt.*;
 
-public class Mavenproject2 extends Frame {
+public class Program1 extends Frame {
     public static void main(String[] args) {
-        new Mavenproject2();
+        new Program1();
     }
-    public Mavenproject2() {
+    public Program1() {
         super("Mavenproject2");
         setSize(300,100);
         Panel panelTombol=new Panel();
