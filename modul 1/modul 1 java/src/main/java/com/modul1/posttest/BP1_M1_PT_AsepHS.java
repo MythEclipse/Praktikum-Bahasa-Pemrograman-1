@@ -1,4 +1,4 @@
-package com.modul1.program2;
+package com.modul1.posttest;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,12 +10,12 @@ package com.modul1.program2;
  *
  * @author asephs
  */
-public class BP1_M1_P2_AsepHS extends javax.swing.JFrame {
+public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
 
     /**
      * Creates new form Mavenproject2Frame
      */
-    public BP1_M1_P2_AsepHS() {
+    public BP1_M1_PT_AsepHS() {
         initComponents();
     }
 
@@ -199,18 +199,22 @@ public class BP1_M1_P2_AsepHS extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         }
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
         // </editor-fold>
@@ -219,7 +223,7 @@ public class BP1_M1_P2_AsepHS extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BP1_M1_P2_AsepHS().setVisible(true);
+                new BP1_M1_PT_AsepHS().setVisible(true);
             }
         });
     }
