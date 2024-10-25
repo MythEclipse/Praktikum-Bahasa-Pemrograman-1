@@ -10,12 +10,12 @@ package com.modul1.program2;
  *
  * @author asephs
  */
-public class Program2 extends javax.swing.JFrame {
+public class BP1_M1_P2_AsepHS extends javax.swing.JFrame {
 
     /**
      * Creates new form Mavenproject2Frame
      */
-    public Program2() {
+    public BP1_M1_P2_AsepHS() {
         initComponents();
     }
 
@@ -199,25 +199,27 @@ public class Program2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Program2.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Program2.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Program2.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Program2.class.getName()).log(java.util.logging.Level.SEVERE,
+            java.util.logging.Logger.getLogger(BP1_M1_P2_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE,
                     null, ex);
         }
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Program2().setVisible(true);
+                new BP1_M1_P2_AsepHS().setVisible(true);
             }
         });
     }

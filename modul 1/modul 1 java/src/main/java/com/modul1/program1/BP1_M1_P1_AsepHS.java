@@ -11,11 +11,11 @@ package com.modul1.program1;
 
 import java.awt.*;
 
-public class Program1 extends Frame {
+public class BP1_M1_P1_AsepHS extends Frame {
     public static void main(String[] args) {
-        new Program1();
+        new BP1_M1_P1_AsepHS();
     }
-    public Program1() {
+    public BP1_M1_P1_AsepHS() {
         super("Mavenproject2");
         setSize(300,100);
         Panel panelTombol=new Panel();
