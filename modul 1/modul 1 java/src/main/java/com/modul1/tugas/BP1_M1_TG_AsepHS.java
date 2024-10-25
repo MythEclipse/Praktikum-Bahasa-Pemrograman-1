@@ -1,4 +1,5 @@
-package com.modul1.posttest;
+package com.modul1.tugas;
+
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -9,12 +10,12 @@ package com.modul1.posttest;
  *
  * @author asephs
  */
-public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
+public class BP1_M1_TG_AsepHS extends javax.swing.JFrame {
 
     /**
      * Creates new form Mavenproject2Frame
      */
-    public BP1_M1_PT_AsepHS() {
+    public BP1_M1_TG_AsepHS() {
         initComponents();
     }
 
@@ -37,6 +38,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         Pengurangan = new java.awt.Button();
         Perkalian = new java.awt.Button();
         Pembagian = new java.awt.Button();
+        Clear = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,10 +48,6 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
 
         label3.setText("Bilangan 2");
 
-        Bilangan1.setText("          ");
-
-        Bilangan2.setText("          ");
-
         Hasil.setText("           ");
         Hasil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,30 +56,37 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         });
 
         Penambahan.setLabel("+");
-        Penambahan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Penambahan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PenambahanActionPerformed(evt);
             }
         });
 
         Pengurangan.setLabel("-");
-        Pengurangan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Pengurangan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PenguranganActionPerformed(evt);
             }
         });
 
         Perkalian.setLabel("*");
-        Perkalian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Perkalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PerkalianActionPerformed(evt);
             }
         });
 
         Pembagian.setLabel("/");
-        Pembagian.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        Pembagian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
                 PembagianActionPerformed(evt);
+            }
+        });
+
+        Clear.setLabel("Clear");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
             }
         });
 
@@ -93,26 +98,31 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(88, 88, 88)
-                            .addComponent(Bilangan2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(87, 87, 87)
-                            .addComponent(Bilangan1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(Penambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Pengurangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Perkalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Pembagian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Hasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(142, Short.MAX_VALUE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(88, 88, 88))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(Penambahan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Pengurangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Perkalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Pembagian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(57, 57, 57)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Bilangan2, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                .addComponent(Bilangan1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Hasil, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,8 +145,13 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
                         .addComponent(Perkalian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(Pembagian, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(Hasil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Clear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
+
+        Bilangan1.getAccessibleContext().setAccessibleName("");
+        Clear.getAccessibleContext().setAccessibleName("Clear");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,7 +160,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         // No action needed
     }//GEN-LAST:event_HasilActionPerformed
 
-    private void PenambahanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenambahanActionPerformed
+    private void PenambahanActionPerformed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenambahanActionPerformed
         try {
             int bil1 = Integer.parseInt(Bilangan1.getText().trim());
             int bil2 = Integer.parseInt(Bilangan2.getText().trim());
@@ -156,7 +171,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PenambahanActionPerformed
 
-    private void PenguranganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenguranganActionPerformed
+    private void PenguranganActionPerformed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PenguranganActionPerformed
         try {
             int bil1 = Integer.parseInt(Bilangan1.getText().trim());
             int bil2 = Integer.parseInt(Bilangan2.getText().trim());
@@ -167,7 +182,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PenguranganActionPerformed
 
-    private void PerkalianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PerkalianActionPerformed
+    private void PerkalianActionPerformed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PerkalianActionPerformed
         try {
             int bil1 = Integer.parseInt(Bilangan1.getText().trim());
             int bil2 = Integer.parseInt(Bilangan2.getText().trim());
@@ -178,7 +193,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_PerkalianActionPerformed
 
-    private void PembagianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PembagianActionPerformed
+    private void PembagianActionPerformed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PembagianActionPerformed
         try {
             int bil1 = Integer.parseInt(Bilangan1.getText().trim());
             int bil2 = Integer.parseInt(Bilangan2.getText().trim());
@@ -192,6 +207,12 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
             Hasil.setText("Error: Invalid number input");
         }
     }//GEN-LAST:event_PembagianActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        Bilangan1.setText("");
+        Bilangan2.setText("");
+        Hasil.setText("");
+    }//GEN-LAST:event_ClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,14 +232,22 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BP1_M1_TG_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BP1_M1_TG_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BP1_M1_TG_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BP1_M1_PT_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(BP1_M1_TG_AsepHS.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
         // </editor-fold>
@@ -231,7 +260,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BP1_M1_PT_AsepHS().setVisible(true);
+                new BP1_M1_TG_AsepHS().setVisible(true);
             }
         });
     }
@@ -239,6 +268,7 @@ public class BP1_M1_PT_AsepHS extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.TextField Bilangan1;
     private java.awt.TextField Bilangan2;
+    private java.awt.Button Clear;
     private java.awt.TextField Hasil;
     private java.awt.Button Pembagian;
     private java.awt.Button Penambahan;
