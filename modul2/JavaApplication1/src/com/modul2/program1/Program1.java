@@ -24,7 +24,14 @@ public class Program1 extends Applet {
     public void init() {
         // TODO start asynchronous download of heavy resources
     }
-public void paint(Graphics g) {
+
+    @Override
+    public void start() {
+        // Method ini dipanggil saat Applet dimulai - tambahkan fungsionalitas jika
+        // diperlukan
+    }
+
+    public void paint(Graphics g) {
         Font font = new Font("Comic Sans MS", Font.BOLD, 20);
         g.setFont(font);
         g.setColor(Color.RED);
@@ -40,18 +47,15 @@ public void paint(Graphics g) {
     }
 
     @Override
-    public void start() {
-        // Method ini dipanggil saat Applet dimulai - tambahkan fungsionalitas jika diperlukan
-    }
-
-    @Override
     public void stop() {
-        // Method ini dipanggil saat Applet dihentikan - tambahkan fungsionalitas jika diperlukan
+        // Method ini dipanggil saat Applet dihentikan - tambahkan fungsionalitas jika
+        // diperlukan
     }
 
     @Override
     public void destroy() {
-        // Method ini dipanggil saat Applet di-destroy - tambahkan fungsionalitas jika diperlukan
+        // Method ini dipanggil saat Applet di-destroy - tambahkan fungsionalitas jika
+        // diperlukan
     }
     // TODO overwrite start(), stop() and destroy() methods
 }
