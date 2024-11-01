@@ -13,7 +13,7 @@ import java.awt.Graphics;
  *
  * @author asephs
  */
-public class BP1_M2_PostTest2_Nama_Applet3D extends Applet {
+public class BP1_M2_PostTest2_AsepHS_Applet3D extends Applet {
 
     /**
      * Initialization method that will be called after the applet is loaded into
