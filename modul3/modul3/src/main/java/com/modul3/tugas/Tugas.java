@@ -4,8 +4,8 @@
  */
 package com.modul3.tugas;
 
-import com.modul3.posttest.*;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +13,16 @@ import javax.swing.JOptionPane;
  */
 public class Tugas extends javax.swing.JFrame {
 
+    private DefaultTableModel tableModelMahasiswa;
+    private DefaultTableModel tableModelMK;
+    private DefaultTableModel tableModelNilai;
+
     /**
      * Creates new form posttest2
      */
     public Tugas() {
         initComponents();
+        setUpTables();
     }
 
     /**
@@ -29,6 +34,8 @@ public class Tugas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuFile = new javax.swing.JMenu();
         jMenuItemOpen = new javax.swing.JMenuItem();
@@ -45,6 +52,12 @@ public class Tugas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {},
+            new String [] {"NIM", "Nama", "Jurusan", "IPK"}
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
         jMenuFile.setText("File");
 
         jMenuItemOpen.setText("Open");
@@ -56,6 +69,11 @@ public class Tugas extends javax.swing.JFrame {
         jMenuFile.add(jMenuItemOpen);
 
         jMenuItemSave.setText("Save");
+        jMenuItemSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemSaveActionPerformed(evt);
+            }
+        });
         jMenuFile.add(jMenuItemSave);
 
         jMenuBar1.add(jMenuFile);
@@ -63,9 +81,19 @@ public class Tugas extends javax.swing.JFrame {
         jMenuDataMahasiswa.setText("Data Mahasiswa");
 
         jMenuItemViewData.setText("View Data");
+        jMenuItemViewData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemViewDataActionPerformed(evt);
+            }
+        });
         jMenuDataMahasiswa.add(jMenuItemViewData);
 
         jMenuItemAddData.setText("Add Data");
+        jMenuItemAddData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddDataActionPerformed(evt);
+            }
+        });
         jMenuDataMahasiswa.add(jMenuItemAddData);
 
         jMenuBar1.add(jMenuDataMahasiswa);
@@ -73,9 +101,19 @@ public class Tugas extends javax.swing.JFrame {
         jMenuMK.setText("Data MK");
 
         jMenuItemViewMK.setText("View MK");
+        jMenuItemViewMK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemViewMKActionPerformed(evt);
+            }
+        });
         jMenuMK.add(jMenuItemViewMK);
 
         jMenuItemAddMK.setText("Add MK");
+        jMenuItemAddMK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddMKActionPerformed(evt);
+            }
+        });
         jMenuMK.add(jMenuItemAddMK);
 
         jMenuBar1.add(jMenuMK);
@@ -83,9 +121,19 @@ public class Tugas extends javax.swing.JFrame {
         jMenuNilai.setText("Data Nilai");
 
         jMenuItemViewNilai.setText("View Nilai");
+        jMenuItemViewNilai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt .event.ActionEvent evt) {
+                jMenuItemViewNilaiActionPerformed(evt);
+            }
+        });
         jMenuNilai.add(jMenuItemViewNilai);
 
         jMenuItemAddNilai.setText("Add Nilai");
+        jMenuItemAddNilai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddNilaiActionPerformed(evt);
+            }
+        });
         jMenuNilai.add(jMenuItemAddNilai);
 
         jMenuBar1.add(jMenuNilai);
@@ -96,54 +144,85 @@ public class Tugas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemOpenActionPerformed
-        // TODO add your handling code here:
-       JOptionPane.showMessageDialog(null, "Open menu item clicked");
-    }//GEN-LAST:event_jMenuItemOpenActionPerformed
+    private void setUpTables() {
+        // Set up table models for each data category
+        tableModelMahasiswa = new DefaultTableModel(new Object[]{"NIM", "Nama", "Jurusan", "IPK"}, 0);
+        tableModelMK = new DefaultTableModel(new Object[]{"Kode MK", "Nama MK", "SKS"}, 0);
+        tableModelNilai = new DefaultTableModel(new Object[]{"NIM", "Kode MK", "Nilai"}, 0);
+        jTable1.setModel(tableModelMahasiswa);
+    }
+
+    private void jMenuItemOpenActionPerformed(java.awt.event.ActionEvent evt) {
+        JOptionPane.showMessageDialog(null, "Open menu item clicked");
+    }
 
     private void jMenuItemSaveActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Save menu item clicked");
     }
 
     private void jMenuItemViewDataActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "View Data Mahasiswa menu item clicked");
+        jTable1.setModel(tableModelMahasiswa);
+        JOptionPane.showMessageDialog(this, "Menampilkan data Mahasiswa");
     }
 
     private void jMenuItemAddDataActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Add Data Mahasiswa menu item clicked");
+        String nim = JOptionPane.showInputDialog(this, "Masukkan NIM:");
+        String nama = JOptionPane.showInputDialog(this, "Masukkan Nama:");
+        String jurusan = JOptionPane.showInputDialog(this, "Masukkan Jurusan:");
+        String ipk = JOptionPane.showInputDialog(this, "Masukkan IPK:");
+
+        if (nim != null && nama != null && jurusan != null && ipk != null) {
+            tableModelMahasiswa.addRow(new Object[]{nim, nama, jurusan, ipk});
+            JOptionPane.showMessageDialog(this, "Data Mahasiswa berhasil ditambahkan!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Data tidak lengkap. Mohon isi semua kolom.");
+        }
     }
 
     private void jMenuItemViewMKActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "View Data MK menu item clicked");
+        jTable1.setModel(tableModelMK);
+        JOptionPane.showMessageDialog(this, "Menampilkan data MK");
     }
 
     private void jMenuItemAddMKActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Add Data MK menu item clicked");
+        String kodeMK = JOptionPane.showInputDialog(this, "Masukkan Kode MK:");
+        String namaMK = JOptionPane.showInputDialog(this, "Masukkan Nama MK:");
+        String sks = JOptionPane.showInputDialog(this, "Masukkan SKS:");
+
+        if (kodeMK != null && namaMK != null && sks != null) {
+            tableModelMK.addRow(new Object[]{kodeMK, namaMK, sks});
+            JOptionPane.showMessageDialog(this, "Data MK berhasil ditambahkan!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Data tidak lengkap. Mohon isi semua kolom.");
+        }
     }
 
     private void jMenuItemViewNilaiActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "View Data Nilai menu item clicked");
+        jTable1.setModel(tableModelNilai);
+        JOptionPane.showMessageDialog(this, "Menampilkan data Nilai");
     }
 
     private void jMenuItemAddNilaiActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Add Data Nilai menu item clicked");
+        String nim = JOptionPane.showInputDialog(this, "Masukkan NIM:");
+        String kodeMK = JOptionPane.showInputDialog(this, "Masukkan Kode MK:");
+        String nilai = JOptionPane.showInputDialog(this, "Masukkan Nilai:");
+
+        if (nim != null && kodeMK != null && nilai != null) {
+            tableModelNilai.addRow(new Object[]{nim, kodeMK , nilai});
+            JOptionPane.showMessageDialog(this, "Data Nilai berhasil ditambahkan!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Data tidak lengkap. Mohon isi semua kolom.");
+        }
     }
 
     /**
@@ -153,7 +232,7 @@ public class Tugas extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -172,9 +251,6 @@ public class Tugas extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Tugas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -185,9 +261,11 @@ public class Tugas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuDataMahasiswa;
     private javax.swing.JMenu jMenuFile;
+    private javax.swing.JMenu jMenuMK;
+    private javax.swing.JMenu jMenuNilai;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemAddData;
     private javax.swing.JMenuItem jMenuItemAddMK;
     private javax.swing.JMenuItem jMenuItemAddNilai;
@@ -196,7 +274,7 @@ public class Tugas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemViewData;
     private javax.swing.JMenuItem jMenuItemViewMK;
     private javax.swing.JMenuItem jMenuItemViewNilai;
-    private javax.swing.JMenu jMenuMK;
-    private javax.swing.JMenu jMenuNilai;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
