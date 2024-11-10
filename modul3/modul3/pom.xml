@@ -8,7 +8,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
-        <exec.mainClass>com.modul3.tugas.Tugas</exec.mainClass>
+        <exec.mainClass>com.modul3.tugas</exec.mainClass>
     </properties>
     <build>
         <plugins>
