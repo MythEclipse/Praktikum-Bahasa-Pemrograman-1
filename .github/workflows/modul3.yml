@@ -1,12 +1,9 @@
-name: Build Maven Module 3
+name: Build and Upload Artifact
 
 on:
   push:
-    paths:
-      - 'modul3/modul3/**'
-  pull_request:
-    paths:
-      - 'modul3/modul3/**'
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -14,14 +11,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: actions/checkout@v4.2.2
 
     - name: Setup Java JDK
-      uses: actions/setup-java@v4.5.0
+      uses: actions/setup-java@v4
       with:
-        distribution: 'temurin' # Specify the distribution
-        java-version: '21' # Specify the latest Java version
+        distribution: 'temurin'
+        java-version: '21'
 
     - name: Build with Maven
       run: mvn -f modul3/modul3/pom.xml clean install
+
+    - name: Upload Build Artifact
+      uses: name: Build and Upload Artifact
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.2.2
+
+    - name: Setup Java JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21'
+
+    - name: Build with Maven
+      run: mvn -f modul3/modul3/pom.xml clean install
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4.4.3
+      with:
+        name: build-artifact
+        path: modul3/modul3/target/
+      with:
+        name: build-artifact
+        path: modul3/modul3/target/
