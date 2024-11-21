@@ -9,21 +9,22 @@ import java.awt.*;
  *
  * @author asephs
  */
-public class Pretest extends JPanel{
-    private double angle = 0;
+public class Pretest extends JPanel {
+    private int x = 0;
+    private boolean movingRight = true;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Rotating Ball (Loading)");
-        Pretest rotatingBall = new Pretest();
+        JFrame frame = new JFrame("Horizontal Moving Box");
+        Pretest movingBox = new Pretest();
 
-        frame.add(rotatingBall);
+        frame.add(movingBox);
         frame.setSize(400, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
         Timer timer = new Timer(16, e -> {
-            rotatingBall.rotateBall();
-            rotatingBall.repaint();
+            movingBox.moveBox();
+            movingBox.repaint();
         });
         timer.start();
     }
@@ -32,25 +33,24 @@ public class Pretest extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        int centerX = getWidth() / 2;
-        int centerY = getHeight() / 2;
-
-        int radius = 100;
-
-        int ballX = (int) (centerX + radius * Math.cos(angle));
-        int ballY = (int) (centerY + radius * Math.sin(angle));
-
-        g.setColor(Color.LIGHT_GRAY);
-        g.drawOval(centerX - radius, centerY - radius, radius * 2, radius * 2);
+        int boxSize = 50;
+        int y = getHeight() / 2 - boxSize / 2;
 
         g.setColor(Color.BLUE);
-        g.fillOval(ballX - 15, ballY - 15, 30, 30);
+        g.fillRect(x, y, boxSize, boxSize);
     }
 
-    private void rotateBall() {
-        angle += 0.05;
-        if (angle >= 2 * Math.PI) {
-            angle -= 2 * Math.PI;
+    private void moveBox() {
+        if (movingRight) {
+            x += 2;
+            if (x + 50 >= getWidth()) {
+                movingRight = false;
+            }
+        } else {
+            x -= 2;
+            if (x <= 0) {
+                movingRight = true;
+            }
         }
     }
 }
