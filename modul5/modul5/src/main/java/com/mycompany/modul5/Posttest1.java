@@ -9,22 +9,22 @@ import java.awt.*;
  *
  * @author asephs
  */
-public class Pretest1 extends JPanel {
+public class Posttest1 extends JPanel {
     private int x = 0;
     private boolean movingRight = true;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Horizontal Moving Box");
-        Pretest1 movingBox = new Pretest1();
+        JFrame frame = new JFrame("Animasi Kapal");
+        Posttest1 movingShip = new Posttest1();
 
-        frame.add(movingBox);
-        frame.setSize(400, 400);
+        frame.add(movingShip);
+        frame.setSize(800, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
 
         Timer timer = new Timer(16, e -> {
-            movingBox.moveBox();
-            movingBox.repaint();
+            movingShip.moveShip();
+            movingShip.repaint();
         });
         timer.start();
     }
@@ -33,17 +33,25 @@ public class Pretest1 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        int boxSize = 50;
-        int y = getHeight() / 2 - boxSize / 2;
+        int y = getHeight() - 100;
+
+        g.setColor(Color.GRAY);
+        g.fillRect(x, y, 100, 30);
 
         g.setColor(Color.BLUE);
-        g.fillRect(x, y, boxSize, boxSize);
+        g.fillRect(x + 20, y - 20, 60, 20);
+
+        g.setColor(Color.RED);
+        g.fillRect(x + 40, y - 40, 20, 20);
+
+        g.setColor(Color.CYAN);
+        g.fillRect(0, getHeight() - 70, getWidth(), 70);
     }
 
-    private void moveBox() {
+    private void moveShip() {
         if (movingRight) {
             x += 2;
-            if (x + 50 >= getWidth()) {
+            if (x + 100 >= getWidth()) {
                 movingRight = false;
             }
         } else {

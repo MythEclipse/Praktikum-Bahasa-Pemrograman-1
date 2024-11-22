@@ -11,6 +11,9 @@ package com.mycompany.modul5;
 public class Modul5 {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Pretest1.main(args);
+        Posttest1.main(args);
+        Praktikum1.main(args);
+        Tugas1.main(args);
     }
 }
