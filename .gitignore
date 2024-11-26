@@ -1,3 +1,4 @@
 */*.docx
 **/target/**  
 **/build/**
+/modul6/modul6/target/
