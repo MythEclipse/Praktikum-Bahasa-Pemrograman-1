@@ -10,7 +10,9 @@ package com.mycompany.modul6;
  */
 public class Modul6 {
 
+    static Login l = new Login();
+
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        l.setVisible(true);
     }
 }
