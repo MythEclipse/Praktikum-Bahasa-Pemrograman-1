@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mytheclipse.modul4;
+package com.mycompany.modul6;
 
 import javax.swing.JOptionPane;
 
@@ -364,7 +364,7 @@ public class Register extends javax.swing.JFrame {
     }
     public void REGISTER(){
         String nim, nama, jk, prodi, alamat, kelas, angkatan, dpa, semester;
-        Nilai r = new Nilai();
+        Form r = new Form();
         nim = jTextField1.getText();
         nama = jTextField2.getText();
         kelas = jTextField3.getText();
@@ -475,6 +475,14 @@ public class Register extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
         // </editor-fold>

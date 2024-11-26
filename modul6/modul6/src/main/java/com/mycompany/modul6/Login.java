@@ -2,23 +2,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mytheclipse.modul4;
+package com.mycompany.modul6;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.swing.JOptionPane;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author asephs
  */
 public class Login extends javax.swing.JFrame {
-
+    Statement st;
+    ResultSet rs;
+    Koneksi koneksi;
     /**
      * Creates new form Praktikum1
      */
     public Login() {
         initComponents();
+        koneksi = new Koneksi();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,7 +56,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Form Login");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mytheclipse/modul4/download (1).jpeg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/modul6/download (1).jpeg"))); // NOI18N
         jLabel2.setText(" ");
 
         jLabel3.setText("Username");
@@ -93,7 +103,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2)
                         .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
@@ -146,19 +156,33 @@ public class Login extends javax.swing.JFrame {
     private void loginUser() {
         String user = jTextField1.getText();
         String pass = jTextField2.getText();
-        String username = "User";
-        String password = "#User123";
+        boolean loginSuccess = false;
+
+        try {
+            st = koneksi.con.createStatement();
+            rs = st.executeQuery("SELECT username, password FROM user");
+            while (rs.next()) {
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+
+                if (user.equals(username) && pass.equals(password)) {
+                    loginSuccess = true;
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
         if (user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Username harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
         } else if (pass.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (user.equals(username) && !pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Password Salah", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (!user.equals(username) && pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Username Salah", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (user.equals(username) && pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login ", JOptionPane.INFORMATION_MESSAGE);
+        } else if (loginSuccess) {
+            Form logina = new Form();
+            logina.setVisible(true);
+            setVisible(false);
+            JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "Login Gagal", "Login", JOptionPane.ERROR_MESSAGE);
         }
@@ -167,19 +191,33 @@ public class Login extends javax.swing.JFrame {
     private void loginAdmin() {
         String user = jTextField1.getText();
         String pass = jTextField2.getText();
-        String username = "Admin";
-        String password = "#Admin123";
+        boolean loginSuccess = false;
+
+        try {
+            st = koneksi.con.createStatement();
+            rs = st.executeQuery("SELECT username, password FROM admin");
+            while (rs.next()) {
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+
+                if (user.equals(username) && pass.equals(password)) {
+                    loginSuccess = true;
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
         if (user.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Username harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
         } else if (pass.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (user.equals(username) && !pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Password Salah", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (!user.equals(username) && pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Username Salah", "Login", JOptionPane.ERROR_MESSAGE);
-        } else if (user.equals(username) && pass.equals(password)) {
-            JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login ", JOptionPane.INFORMATION_MESSAGE);
+        } else if (loginSuccess) {
+            JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
+            Form logina = new Form();
+            logina.setVisible(true);
+            setVisible(false);
         } else {
             JOptionPane.showMessageDialog(null, "Login Gagal", "Login", JOptionPane.ERROR_MESSAGE);
         }
@@ -193,7 +231,7 @@ public class Login extends javax.swing.JFrame {
             loginUser();
         }
     }
-
+       
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         login();
@@ -246,6 +284,38 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null,
                     ex);
         }
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
+        // </editor-fold>
         // </editor-fold>
         // </editor-fold>
         // </editor-fold>

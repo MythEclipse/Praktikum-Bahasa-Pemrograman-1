@@ -14,7 +14,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class Koneksi {
-    private Connection con;
+    public Connection con;
 
     public Koneksi() {
         String id = "root";
