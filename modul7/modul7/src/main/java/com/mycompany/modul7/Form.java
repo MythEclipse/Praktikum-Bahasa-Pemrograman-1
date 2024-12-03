@@ -32,6 +32,18 @@ public class Form extends javax.swing.JFrame {
 
         }
 
+        private void clean_form() {
+                jTextField1.setText("");
+                jTextField2.setText("");
+                jTextField3.setText("");
+                jTextField4.setText("");
+                jTextField5.setText("");
+                jTextArea1.setText("");
+                jRadioButton1.setSelected(false);
+                jRadioButton2.setSelected(false);
+                jComboBox1.setSelectedIndex(0);
+        }
+
         private void load_data() {
                 Object header[] = { "NIM", "Nama", "Jenis Kelamin", "Prodi", "Alamat", "Kelas", "Angkatan", "No HP" };
                 DefaultTableModel data = new DefaultTableModel(null, header);
@@ -78,6 +90,8 @@ public class Form extends javax.swing.JFrame {
                                         + "','" + jTextField5.getText()
                                         + "')";
                         st.execute(sql);
+                        clean_form();
+                        load_data();
                         JOptionPane.showMessageDialog(null, "Data Mahasiswa Berhasil Di Input");
                 } catch (SQLException e) {
                         JOptionPane.showMessageDialog(null, e);
@@ -385,7 +399,11 @@ public class Form extends javax.swing.JFrame {
 
         private void SimpanMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_SimpanMouseClicked
                 // TODO add your handling code here:
-                input_data();
+                int response = JOptionPane.showConfirmDialog(null, "Apakah Anda yakin ingin menyimpan data?",
+                                "Konfirmasi", JOptionPane.YES_NO_OPTION);
+                if (response == JOptionPane.YES_OPTION) {
+                        input_data();
+                }
         }// GEN-LAST:event_SimpanMouseClicked
 
         /**
