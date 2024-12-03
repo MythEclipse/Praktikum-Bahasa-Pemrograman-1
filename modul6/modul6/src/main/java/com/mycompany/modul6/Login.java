@@ -4,9 +4,6 @@
  */
 package com.mycompany.modul6;
 
-import java.sql.ResultSet;
-import java.sql.Statement;
-
 import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.sql.Statement;
