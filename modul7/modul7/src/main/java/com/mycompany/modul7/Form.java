@@ -73,6 +73,13 @@ public class Form extends javax.swing.JFrame {
 
         public void input_data() {
                 try {
+                        if (jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() || 
+                            jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextArea1.getText().isEmpty() || 
+                            (!jRadioButton1.isSelected() && !jRadioButton2.isSelected()) || jComboBox1.getSelectedIndex() == 0) {
+                                JOptionPane.showMessageDialog(null, "Semua field harus diisi");
+                                return;
+                        }
+
                         String jk = "";
                         if (jRadioButton1.isSelected()) {
                                 jk = jRadioButton1.getText();
