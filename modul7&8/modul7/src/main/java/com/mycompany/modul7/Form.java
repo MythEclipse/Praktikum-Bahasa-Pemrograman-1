@@ -76,8 +76,7 @@ public class Form extends javax.swing.JFrame {
             if (jTextField1.getText().isEmpty() || jTextField2.getText().isEmpty() || jTextField3.getText().isEmpty() ||
                     jTextField4.getText().isEmpty() || jTextField5.getText().isEmpty() || jTextArea1.getText().isEmpty()
                     ||
-                    (!jRadioButton1.isSelected() && !jRadioButton2.isSelected())
-                    || jComboBox1.getSelectedIndex() == 0) {
+                    (!jRadioButton1.isSelected() && !jRadioButton2.isSelected())) {
                 JOptionPane.showMessageDialog(null, "Semua field harus diisi");
                 return;
             }
