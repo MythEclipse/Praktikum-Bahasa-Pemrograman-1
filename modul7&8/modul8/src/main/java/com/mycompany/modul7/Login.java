@@ -176,7 +176,7 @@ public class Login extends javax.swing.JFrame {
         } else if (pass.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
         } else if (loginSuccess) {
-            Form logina = new Form();
+            FormDataMahasiswa logina = new FormDataMahasiswa();
             logina.setVisible(true);
             setVisible(false);
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
@@ -212,7 +212,7 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Password harus diisi", "Login", JOptionPane.ERROR_MESSAGE);
         } else if (loginSuccess) {
             JOptionPane.showMessageDialog(null, "Login Sukses " + user, "Login", JOptionPane.INFORMATION_MESSAGE);
-            Form logina = new Form();
+            FormDataMahasiswa logina = new FormDataMahasiswa();
             logina.setVisible(true);
             setVisible(false);
         } else {

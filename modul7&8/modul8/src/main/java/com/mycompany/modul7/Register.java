@@ -364,7 +364,7 @@ public class Register extends javax.swing.JFrame {
     }
     public void REGISTER(){
         String nim, nama, jk, prodi, alamat, kelas, angkatan, dpa, semester;
-        Form r = new Form();
+        FormDataMahasiswa r = new FormDataMahasiswa();
         nim = jTextField1.getText();
         nama = jTextField2.getText();
         kelas = jTextField3.getText();
