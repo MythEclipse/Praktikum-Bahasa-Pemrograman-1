@@ -17,10 +17,10 @@ public class Koneksi {
     public Connection con;
 
     public Koneksi() {
-        String id = "root";
-        String pass = "";
+        String id = "asephs";
+        String pass = "hunterz";
         String driver = "com.mysql.cj.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/db_mhs";
+        String url = "jdbc:mysql://217.15.165.147:3306/db_mhs";
 
         try {
             Class.forName(driver);
