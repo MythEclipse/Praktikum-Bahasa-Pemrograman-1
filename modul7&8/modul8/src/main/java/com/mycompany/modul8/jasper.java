@@ -47,7 +47,7 @@ public class jasper {
             JRDesignBand titleBand = new JRDesignBand();
             titleBand.setHeight(50);
             JRDesignStaticText titleText = new JRDesignStaticText();
-            titleText.setText("Laporan Nilai Mahasiswa");
+            titleText.setText("Modul 9 Asep haryana saputra");
             titleText.setX(0);
             titleText.setY(10);
             titleText.setWidth(555);
