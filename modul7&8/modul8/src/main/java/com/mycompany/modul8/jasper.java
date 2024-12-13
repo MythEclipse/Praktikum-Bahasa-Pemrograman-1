@@ -3,17 +3,11 @@ package com.mycompany.modul8;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.*;
-import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
-import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
-import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
-import net.sf.jasperreports.view.JasperViewer;  // Import JasperViewer
+import net.sf.jasperreports.engine.type.*;
+import net.sf.jasperreports.view.JasperViewer;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.awt.Color;
+import java.util.*;
 
 public class jasper {
 
@@ -54,22 +48,52 @@ public class jasper {
             titleBand.addElement(titleText);
             jasperDesign.setTitle(titleBand);
 
+            // Header Band
+            JRDesignBand headerBand = new JRDesignBand();
+            headerBand.setHeight(30);
+            int x = 0;
+
+            String[] headers = { "NIM", "Nama", "Jenis Kelamin", "Program Studi", "Kelas", "Nilai" };
+            for (int i = 0; i < headers.length; i++) {
+                JRDesignStaticText headerText = new JRDesignStaticText();
+                headerText.setText(headers[i]);
+                headerText.setX(x);
+                headerText.setY(0);
+                headerText.setWidth(90);
+                headerText.setHeight(30);
+                headerText.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+                headerText.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
+                headerText.setBackcolor(Color.BLUE);
+                headerText.setForecolor(Color.WHITE);
+                headerText.setMode(ModeEnum.OPAQUE);
+
+                headerText.getLineBox().getPen().setLineWidth(0.5f);
+
+                headerBand.addElement(headerText);
+                x += 90; // Adjust width for each column
+            }
+            jasperDesign.setColumnHeader(headerBand);
+
             // Detail Band
             JRDesignBand detailBand = new JRDesignBand();
             detailBand.setHeight(20);
-            int y = 0;
+            x = 0;
+
             for (String field : fields) {
                 JRDesignTextField textField = new JRDesignTextField();
-                textField.setX(y);
+                textField.setX(x);
                 textField.setY(0);
                 textField.setWidth(90);
                 textField.setHeight(20);
-                textField.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
                 textField.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+                textField.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
+                textField.setStretchType(StretchTypeEnum.NO_STRETCH); // Use StretchTypeEnum instead
 
                 textField.setExpression(new JRDesignExpression("$F{" + field + "}"));
+                textField.getLineBox().getPen().setLineWidth(0.5f);
+
                 detailBand.addElement(textField);
-                y += 100;
+                x += 90; // Adjust width for each column
             }
             ((JRDesignSection) jasperDesign.getDetailSection()).addBand(detailBand);
 
@@ -86,7 +110,7 @@ public class jasper {
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
             // Display report in JasperViewer
-            JasperViewer.viewReport(jasperPrint, false);  // This will open the report in the default viewer
+            JasperViewer.viewReport(jasperPrint, false);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -95,28 +119,20 @@ public class jasper {
 
     public static void main(String[] args) {
         jasper reportGenerator = new jasper();
-        List<Map<String, ?>> data = fetchDataFromDatabase();
+        List<Map<String, ?>> data = fetchData();
         reportGenerator.generateReport(data);
     }
 
-    private static List<Map<String, ?>> fetchDataFromDatabase() {
+    private static List<Map<String, ?>> fetchData() {
         List<Map<String, ?>> data = new ArrayList<>();
-        Koneksi koneksi = new Koneksi();
-        String sql = "SELECT nim, nama, jk, prodi, kelas, nilai FROM nilai";
-        try (Statement st = koneksi.con.createStatement(); ResultSet rs = st.executeQuery(sql)) {
-            while (rs.next()) {
-                Map<String, Object> row = new HashMap<>();
-                row.put("nim", rs.getString("nim"));
-                row.put("nama", rs.getString("nama"));
-                row.put("jk", rs.getString("jk"));
-                row.put("prodi", rs.getString("prodi"));
-                row.put("kelas", rs.getString("kelas"));
-                row.put("nilai", rs.getString("nilai"));
-                data.add(row);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Map<String, Object> row = new HashMap<>();
+        row.put("nim", "20230810043");
+        row.put("nama", "Asep Haryana");
+        row.put("jk", "L");
+        row.put("prodi", "TI");
+        row.put("kelas", "TINFC-2023-04");
+        row.put("nilai", "9999999");
+        data.add(row);
         return data;
     }
 }

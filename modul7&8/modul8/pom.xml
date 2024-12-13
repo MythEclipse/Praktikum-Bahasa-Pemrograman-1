@@ -23,10 +23,32 @@
             <artifactId>jasperreports</artifactId>
             <version>7.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-pdf -->
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-fonts -->
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports-pdf</artifactId>
+            <artifactId>jasperreports-fonts</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-metadata -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-metadata</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-functions -->
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-functions</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-javaflow</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-data-adapters</artifactId>
             <version>7.0.1</version>
         </dependency>
     </dependencies>
