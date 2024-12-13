@@ -7,9 +7,18 @@ import net.sf.jasperreports.engine.type.*;
 import net.sf.jasperreports.view.JasperViewer;
 
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 
 public class jasper {
+
+    private Koneksi koneksi;
+
+    public jasper() {
+        koneksi = new Koneksi();
+    }
 
     public void generateReport(List<Map<String, ?>> data) {
         try {
@@ -119,20 +128,31 @@ public class jasper {
 
     public static void main(String[] args) {
         jasper reportGenerator = new jasper();
-        List<Map<String, ?>> data = fetchData();
+        List<Map<String, ?>> data = reportGenerator.fetchData();
         reportGenerator.generateReport(data);
     }
 
-    private static List<Map<String, ?>> fetchData() {
+    private List<Map<String, ?>> fetchData() {
         List<Map<String, ?>> data = new ArrayList<>();
-        Map<String, Object> row = new HashMap<>();
-        row.put("nim", "20230810043");
-        row.put("nama", "Asep Haryana");
-        row.put("jk", "L");
-        row.put("prodi", "TI");
-        row.put("kelas", "TINFC-2023-04");
-        row.put("nilai", "9999999");
-        data.add(row);
+        String sql = "SELECT nim, nama, jk, prodi, kelas, nilai FROM nilai";
+
+        try (Connection con = koneksi.con;
+             Statement st = con.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) {
+                Map<String, Object> row = new HashMap<>();
+                row.put("nim", rs.getString("nim"));
+                row.put("nama", rs.getString("nama"));
+                row.put("jk", rs.getString("jk"));
+                row.put("prodi", rs.getString("prodi"));
+                row.put("kelas", rs.getString("kelas"));
+                row.put("nilai", rs.getString("nilai"));
+                data.add(row);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return data;
     }
 }
