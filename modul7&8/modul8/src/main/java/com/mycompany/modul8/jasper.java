@@ -6,9 +6,8 @@ import net.sf.jasperreports.engine.design.*;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;  // Import JasperViewer
 
-import java.awt.Desktop;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -86,15 +85,9 @@ public class jasper {
             // Fill the report
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
-            // Export to PDF
-            String pdfFilePath = "DynamicReport.pdf";
-            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFilePath);
+            // Display report in JasperViewer
+            JasperViewer.viewReport(jasperPrint, false);  // This will open the report in the default viewer
 
-            // Open the PDF
-            File pdfFile = new File(pdfFilePath);
-            if (pdfFile.exists() && Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().open(pdfFile);
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }

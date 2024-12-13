@@ -31,6 +31,13 @@ public class Koneksi {
         }
     }
 
+    public static Connection getConnection() throws SQLException {
+
+        String id = "asephs";
+        String pass = "hunterz";
+        String url = "jdbc:mysql://217.15.165.147:3306/db_mhs";
+        return DriverManager.getConnection(url, id, pass);
+    }
     public static void main(String[] args) {
         new Koneksi();
     }
